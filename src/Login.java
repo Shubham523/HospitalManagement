@@ -1,3 +1,5 @@
+
+
 import javax.swing.*;
 import java.awt.event.*;
 import java.sql.*;
@@ -13,22 +15,8 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         
         JFrame loginFrame = new JFrame("MedLife Hospital Admin Login");
-        loginFrame.setVisible(true);
-    
-       
+        loginFrame.setVisible(true);   
     }
-    
-     public void loginButtonActionPerformed(java.awt.event.ActionEvent evt)
-      {
-        
-         if(usernameField.getText().equals("") || passwordField.getText().equals("") )
-         {
-                JOptionPane.showMessageDialog(this, "Please enter username and/or password",
-                "Validation Error", JOptionPane.ERROR_MESSAGE);     
-         }
-         
-      }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -46,9 +34,9 @@ public class Login extends javax.swing.JFrame {
         passwordLabel = new javax.swing.JLabel();
         passwordSeparator = new javax.swing.JSeparator();
         passwordField = new javax.swing.JPasswordField();
-        loginButton = new javax.swing.JButton();
         loginTitle = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        loginButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -97,40 +85,46 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        loginButton.setBackground(new java.awt.Color(0, 0, 0));
-        loginButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        loginButton.setForeground(new java.awt.Color(102, 255, 255));
-        loginButton.setText("Login");
-
         loginTitle.setBackground(new java.awt.Color(0, 0, 0));
         loginTitle.setFont(new java.awt.Font("Arial", 1, 22)); // NOI18N
         loginTitle.setForeground(new java.awt.Color(102, 255, 255));
         loginTitle.setText("Admin Login");
 
+        loginButton.setBackground(new java.awt.Color(0, 0, 0));
+        loginButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        loginButton.setForeground(new java.awt.Color(102, 255, 255));
+        loginButton.setText("Login");
+        loginButton.setBorder(null);
+        loginButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(63, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(passwordLabel)
-                    .addComponent(usernameLabel)
-                    .addComponent(usernameField)
-                    .addComponent(usernameSeparator)
-                    .addComponent(passwordSeparator)
-                    .addComponent(passwordField, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
-                    .addComponent(loginButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(68, 68, 68))
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(111, 111, 111)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(103, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(101, 101, 101)
-                        .addComponent(loginTitle))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(passwordLabel)
+                            .addComponent(usernameLabel)
+                            .addComponent(usernameField)
+                            .addComponent(usernameSeparator)
+                            .addComponent(passwordSeparator)
+                            .addComponent(passwordField)
+                            .addComponent(loginButton, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE))
+                        .addGap(68, 68, 68))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(loginTitle)
+                        .addGap(116, 116, 116))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,9 +145,9 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(passwordSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(109, 109, 109))
+                .addGap(18, 18, 18)
+                .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(114, 114, 114))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -163,7 +157,8 @@ public class Login extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,6 +176,17 @@ public class Login extends javax.swing.JFrame {
     private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordFieldActionPerformed
+
+    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+       String username = usernameField.getText();
+       String password = passwordField.getText();
+       
+       if(usernameField.getText().equals("") || passwordField.getText().equals(""))
+       {
+          JOptionPane.showMessageDialog(this, "Dear User Please enter username and/or password",
+                "Validation Error", JOptionPane.ERROR_MESSAGE);
+       }    
+    }//GEN-LAST:event_loginButtonActionPerformed
 
     /**
      * @param args the command line arguments
