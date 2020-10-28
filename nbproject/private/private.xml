@@ -3,10 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/SHUBHAM/College/SBMP/Syllabus%20Related/Sem%203/Java/Project/Shubham/Hospital%20Management/src/AddPatientPanel.java</file>
-            <file>file:/D:/SHUBHAM/College/SBMP/Syllabus%20Related/Sem%203/Java/Project/Shubham/Hospital%20Management/src/Doctors.java</file>
-            <file>file:/D:/SHUBHAM/College/SBMP/Syllabus%20Related/Sem%203/Java/Project/Shubham/Hospital%20Management/src/AddDoctorPanel.java</file>
-            <file>file:/D:/SHUBHAM/College/SBMP/Syllabus%20Related/Sem%203/Java/Project/Shubham/Hospital%20Management/src/SearchDoctorPanel.java</file>
+            <file>file:/D:/SHUBHAM/College/SBMP/Syllabus%20Related/Sem%203/Java/Project/Shubham/Hospital%20Management/src/SearchPatientFrame.java</file>
+            <file>file:/D:/SHUBHAM/College/SBMP/Syllabus%20Related/Sem%203/Java/Project/Shubham/Hospital%20Management/src/SearchDoctorFrame.java</file>
+            <file>file:/D:/SHUBHAM/College/SBMP/Syllabus%20Related/Sem%203/Java/Project/Shubham/Hospital%20Management/src/DisplayDoctorsFrame.java</file>
+            <file>file:/D:/SHUBHAM/College/SBMP/Syllabus%20Related/Sem%203/Java/Project/Shubham/Hospital%20Management/src/HospitalManagement.java</file>
+            <file>file:/D:/SHUBHAM/College/SBMP/Syllabus%20Related/Sem%203/Java/Project/Shubham/Hospital%20Management/src/AddDoctorFrame.java</file>
+            <file>file:/D:/SHUBHAM/College/SBMP/Syllabus%20Related/Sem%203/Java/Project/Shubham/Hospital%20Management/src/DBConnect.java</file>
+            <file>file:/D:/SHUBHAM/College/SBMP/Syllabus%20Related/Sem%203/Java/Project/Shubham/Hospital%20Management/src/AddPatientFrame.java</file>
+            <file>file:/D:/SHUBHAM/College/SBMP/Syllabus%20Related/Sem%203/Java/Project/Shubham/Hospital%20Management/src/DisplayPatientsFrame.java</file>
             <file>file:/D:/SHUBHAM/College/SBMP/Syllabus%20Related/Sem%203/Java/Project/Shubham/Hospital%20Management/src/Login.java</file>
         </group>
     </open-files>

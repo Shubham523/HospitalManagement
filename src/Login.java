@@ -10,13 +10,53 @@ import javax.imageio.ImageIO;
 import java.io.*;
 
 public class Login extends javax.swing.JFrame {
-
+    Connection con;
+    ResultSet rs;
+    Statement st;
+    
     public Login() {
+        UIManager.put("OptionPane.messageFont", new Font("Arial", Font.BOLD, 14));
+        
         initComponents();
         
         JFrame loginFrame = new JFrame("MedLife Hospital Admin Login");
-        loginFrame.setVisible(true);   
+       // loginFrame.setVisible(true); 
+       
+       ButtonPressingSetting();
+       this.getRootPane().setDefaultButton(loginButton);
+       try
+       {
+       con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/hospitalmanagement",
+                        "root", "");
+       System.out.println("Database connection successful");
+            st = con.createStatement();
+       }
+       catch(Exception e) {System.out.println("Exception Generated : "+e);}
+     }
+    void ButtonPressingSetting()
+    {
+        loginButton.registerKeyboardAction(loginButton.getActionForKeyStroke(
+                                      KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0, false)),
+                                      KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, false),
+                                      JComponent.WHEN_FOCUSED);
+
+        loginButton.registerKeyboardAction(loginButton.getActionForKeyStroke(
+                                      KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0, true)),
+                                      KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, true),
+                                      JComponent.WHEN_FOCUSED);
+         clearButton.registerKeyboardAction(clearButton.getActionForKeyStroke(
+                                      KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0, false)),
+                                      KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, false),
+                                      JComponent.WHEN_FOCUSED);
+
+        clearButton.registerKeyboardAction(clearButton.getActionForKeyStroke(
+                                      KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0, true)),
+                                      KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, true),
+                                      JComponent.WHEN_FOCUSED);
+   
     }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,6 +77,7 @@ public class Login extends javax.swing.JFrame {
         loginTitle = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         loginButton = new javax.swing.JButton();
+        clearButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -101,6 +142,12 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        clearButton.setBackground(new java.awt.Color(0, 0, 0));
+        clearButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        clearButton.setForeground(new java.awt.Color(51, 255, 255));
+        clearButton.setText("Clear");
+        clearButton.setBorder(null);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -113,6 +160,9 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(loginTitle)
+                        .addGap(116, 116, 116))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(passwordLabel)
                             .addComponent(usernameLabel)
@@ -120,11 +170,9 @@ public class Login extends javax.swing.JFrame {
                             .addComponent(usernameSeparator)
                             .addComponent(passwordSeparator)
                             .addComponent(passwordField)
-                            .addComponent(loginButton, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE))
-                        .addGap(68, 68, 68))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(loginTitle)
-                        .addGap(116, 116, 116))))
+                            .addComponent(loginButton, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
+                            .addComponent(clearButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(68, 68, 68))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,7 +181,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(loginTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addComponent(usernameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -147,7 +195,9 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(passwordSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(114, 114, 114))
+                .addGap(27, 27, 27)
+                .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -185,7 +235,48 @@ public class Login extends javax.swing.JFrame {
        {
           JOptionPane.showMessageDialog(this, "Dear User Please enter username and/or password",
                 "Validation Error", JOptionPane.ERROR_MESSAGE);
-       }    
+       }   
+       else
+        {
+
+ 
+
+            try{
+                st = con.createStatement();
+                String sqlstr="select * from users where "+ "Username='"+usernameField.getText()+"' and Password='"+ passwordField.getText()+"'";
+                rs = st.executeQuery(sqlstr);
+                if (rs.next()) {
+                    JOptionPane.showMessageDialog(this,"Login Successful!!!");
+                    // System.out.println("Button pressed");
+                }
+                else
+                {
+                 JOptionPane.showMessageDialog(this, "Invalid Credentials!!!",
+                "Login Failed", JOptionPane.ERROR_MESSAGE);
+                System.exit(0);
+                }    
+                this.setVisible(false) ;
+                HospitalManagement homepage = new HospitalManagement();
+                homepage.setLocationRelativeTo(null);// GUI comes in center
+                homepage.setTitle("MediLife Hospital");
+                homepage.setSize(600,600);
+                homepage.setVisible(true);
+            }
+            catch(Exception e) {System.out.println("Exception Generated:"+e);}
+            finally 
+            {
+                try
+                {
+                if(rs!=null) rs.close();
+                if(st!=null) st.close();
+                if(con!=null) con.close();
+                }
+               catch(SQLException sqle) {System.out.println(sqle);}
+            } // end of finally  
+
+ 
+
+        }
     }//GEN-LAST:event_loginButtonActionPerformed
 
     /**
@@ -224,6 +315,7 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton clearButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
